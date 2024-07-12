@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         mavenhome = tool 'jenkins-maven'
-        imageName = "demo"
+        imageName = "studi-backend"
         dockerImage = ""
     }
     tools {
