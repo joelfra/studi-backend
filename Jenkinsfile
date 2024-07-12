@@ -4,8 +4,6 @@ pipeline {
     environment {
         mavenhome = tool 'jenkins-maven'
         imageName = "demo"
-        registryCredentials = "nexus"
-        registry = "localhost:9001/"
         dockerImage = ""
     }
     tools {
