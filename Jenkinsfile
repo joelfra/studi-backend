@@ -45,5 +45,7 @@ pipeline {
                 dockerImage.push()          }
             }
         }
+        }
+    }
     
 }
