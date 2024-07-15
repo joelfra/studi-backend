@@ -40,12 +40,11 @@ pipeline {
             steps {
                 script {
                     def dockerCmd = "docker run -d -p 8080:8080 ${imageName}"
-          withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-jenkins', , url: "ecr:eu-west-3:aws-credentials" ]]) {
-            bat 'ssh -i "Key-pair1" 767398121285.dkr.ecr.eu-west-3.amazonaws.com/studi'
+          withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-jenkins', url: "https:767398121285.dkr.ecr.eu-west-3.amazonaws.com/studi" ]]) {
                 dockerImage.push()          }
             }
         }
         }
     }
-    
+    767398121285.dkr.ecr.eu-west-3.amazonaws.com/studi
 }
