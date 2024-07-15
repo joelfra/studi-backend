@@ -40,11 +40,16 @@ pipeline {
             steps {
                 script {
                     def dockerCmd = "docker run -d -p 8080:8080 ${imageName}"
-          withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-jenkins', url: "https:767398121285.dkr.ecr.eu-west-3.amazonaws.com/studi" ]]) {
-                dockerImage.push()          }
+          withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-jenkins', 
+                accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                secretKeyVariable: 'AWS_SECRET_ACCESS_KEY' ]]) {
+                    bat 'aws ecr get-login-password --region eu-west-3 | docker login --username AWS --password-stdin 767398121285.dkr.ecr.eu-west-3.amazonaws.com'
+                    bat 'docker login -u AWS -p ${AWS_SECRET_ACCESS_KEY_ID} ${AWS_ACCESS_KEY_ID}'
+                    bat 'docker push ${imageName}'
+                }
+                         }
             }
         }
         }
     }
-    767398121285.dkr.ecr.eu-west-3.amazonaws.com/studi
 }
