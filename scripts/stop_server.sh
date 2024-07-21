@@ -1,2 +1,3 @@
 #!/bin/bash
-sudo pkill -f 'java -jar'
+service ubuntu stop
+exit 0
