@@ -23,4 +23,4 @@ artifacts:
 
 cache:
   paths:
-  - '/root/.m2/**/*'
+  - '/ubuntu/.m2/**/*'
